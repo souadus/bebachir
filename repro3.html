@@ -18,26 +18,26 @@
 </head>
 
 <script type="text/javascript">
-var _0xd697 = ["\\]", "replace", "\\[", "[\\?&]", "=([^&#]*)", "search", "exec", "", " ", "p", "embed", "r", "<iframe allow=\"encrypted-media\" src=\"", "\" width=\"100%\" height=\"100%\" name=\"iframe\" id=\"iframe\" frameborder=\"0\" scrolling=\"yes\" style=\"position:absolute;\" allowfullscreen=\"\"></iframe>", "write", "<img class=\"embed-responsive-item\" src=\"\" width=\"100%\" height=\"100%\">"];
-
-function getParameterByName(_0x6489x2) {
-    _0x6489x2 = _0x6489x2[_0xd697[1]](/[\[]/, _0xd697[2])[_0xd697[1]](/[\]]/, _0xd697[0]);
-    var _0x6489x3 = new RegExp(_0xd697[3] + _0x6489x2 + _0xd697[4]),
-        _0x6489x4 = _0x6489x3[_0xd697[6]](location[_0xd697[5]]);
-    return _0x6489x4 === null ? _0xd697[7] : decodeURIComponent(_0x6489x4[1][_0xd697[1]](/\+/g, _0xd697[8]))
-}
-id = getParameterByName(_0xd697[9]);
-if (getParameterByName(_0xd697[10])) {
-    embed = getParameterByName(_0xd697[10])
-} else {
-    if (getParameterByName(_0xd697[11])) {
-        embed = getParameterByName(_0xd697[11])
-    } else {
-        embed = false
+    function getParameterByName(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+            results = regex.exec(location.search);
+        return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
     }
-};
-if (embed) {
-    document[_0xd697[14]](_0xd697[12] +embed + _0xd697[13])
-} else {
-    document[_0xd697[14]](_0xd697[15])
-}</script>
+     id = getParameterByName('p');
+    if(getParameterByName('embed')){
+       embed = getParameterByName('embed');
+    }else{
+       if(getParameterByName('r')){
+           embed = getParameterByName('r');
+        }else{
+           embed = false;
+    }  
+    }
+
+ </script> 
+    <div class="video-container">     
+        <script type="text/javascript">
+            if (embed) {document.write('<iframe class="embed-responsive-item" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen src="'+embed+'" scrolling="yes" frameBorder="0" title="Reproductor 1" alt="Reproducir"  width="100%" height="100%" allowfullscreen></iframe>');}else{document.write('<img class="embed-responsive-item" src="https://souadus.github.io/bebachir/BINGO.PNG" width="100%">')}
+                </script>
+</div>
