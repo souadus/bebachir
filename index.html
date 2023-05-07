@@ -140,6 +140,20 @@
   opacity: 1;
   color: blue;
 }
+	  
+	  #words {
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(235, 0, 0);
+        white-space: nowrap;
+        overflow: hidden;
+      }
+
+      #words marquee {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
   </style>
 
 </head>
@@ -924,7 +938,21 @@ if (!document.fullscreenElement) {
 
 
 
-
+<script>
+  fetch('1.txt')
+    .then(response => response.text())
+    .then(text => {
+      const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
+      const marquee = document.querySelector('#words marquee');
+      words.forEach(word => {
+        const span = document.createElement('span');
+        span.textContent = word;
+        marquee.appendChild(span);
+        const space = document.createTextNode(' ');
+        marquee.appendChild(space);
+      });
+    });
+</script>
 
 
 
