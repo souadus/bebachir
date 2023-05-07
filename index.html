@@ -919,6 +919,16 @@ if (!document.fullscreenElement) {
 
 
 <script>
+	
+		// Set AdMob ad unit ID
+const adUnitId = 'ca-app-pub-4722477538522594/9244768697';
+
+// Initialize AdMob
+admob.interstitial.load({
+    adUnitId: adUnitId
+});
+	
+	
   var bomom = 0;
   var dongoo = document.getElementById("dongoo");
 
@@ -928,8 +938,27 @@ if (!document.fullscreenElement) {
 
     if (bomom > 3) {
       window.location.href = "https://souadus.github.io/bebachir/repro3.html?r=https://pawkar.pages.dev/";
+	    
+	        // Show interstitial ad
+        admob.interstitial.show().then(() => {
+            admob.interstitial.load({
+                adUnitId: adUnitId
+            });
+        }).catch((error) => {
+            console.log('Failed to show interstitial ad', error);
+        });
     }
   });
+	
+	
+	
+
+
+
+
+	
+	
+	
 </script>
 
 
