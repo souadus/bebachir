@@ -169,21 +169,18 @@
     <div class="topnav" id="myTopnav">
       <a href="javascript:location.reload()" id="dongoo"  class="active">Refresh</a>
   
-      <!-- <a href="canales.html"> Deportes </a>
-    <a href="note.html"> Canales </a>-->
+      <div id="words">
+      <marquee behavior="scroll" direction="left"></marquee>
+    </div>
 
       <a href="javascript:void(0);" class="icon" onclick="myFunction()">
         <i class="fa fa-bars"></i>
       </a>
     </div>
     <br>
-  <!--<div class="alert">
-      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
-      <strong>Atancion!</strong> la aplicacion se va eleminar esos dias discargen ** COLFUT ** Esta en PlayStore.
-    </div>
-    <center><div class="sombreada_css3">
-      <a href=""> <img src="Captur.png" alt="Mundial Qatar 2022" style="width:100%;"></a>
-    </div></center>-->
+
+	  
+	  
     <div id="wrapper">
       <ul class="menu">
 
@@ -939,19 +936,19 @@ if (!document.fullscreenElement) {
 
 
 <script>
-  fetch('1.txt')
-    .then(response => response.text())
-    .then(text => {
-      const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
-      const marquee = document.querySelector('#words marquee');
-      words.forEach(word => {
-        const span = document.createElement('span');
-        span.textContent = word;
-        marquee.appendChild(span);
-        const space = document.createTextNode(' ');
-        marquee.appendChild(space);
-      });
-    });
+      fetch('1.txt')
+        .then(response => response.text())
+        .then(text => {
+          const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
+          const marquee = document.querySelector('#words marquee');
+          words.forEach(word => {
+            const span = document.createElement('span');
+            span.textContent = word;
+            marquee.appendChild(span);
+            const space = document.createTextNode(' ');
+            marquee.appendChild(space);
+          });
+        });
 </script>
 
 
