@@ -938,7 +938,7 @@ if (!document.fullscreenElement) {
  <script>
       const now = new Date();
       const currentHour = now.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true });
-      const showMarquee = currentHour.indexOf('PM') !== -1 && parseInt(currentHour) >= 7 && parseInt(currentHour) < 9;
+      const showMarquee = currentHour.indexOf('PM') !== -1 && parseInt(currentHour) >= 1 && parseInt(currentHour) < 3;
       const wordsElement = document.querySelector('#words');
 
       if (showMarquee) {
