@@ -142,10 +142,12 @@
   color: blue;
 }
 	  
-	  #words {
+      #words {
         font-size: 24px;
         font-weight: bold;
-        color: rgb(235, 0, 0);
+        color: #e5be01; /* Color dorado */
+  text-shadow: 0 0 5px #e5be01; /* Sombra dorada */
+  animation: golden 2s ease-in-out infinite; /* Animación dorada */
         white-space: nowrap;
         overflow: hidden;
       }
@@ -155,6 +157,18 @@
         margin: 0;
         padding: 0;
       }
+
+      @keyframes golden {
+  0% {
+    text-shadow: 0 0 5px #e5be01;
+  }
+  50% {
+    text-shadow: 0 0 20px #e5be01;
+  }
+  100% {
+    text-shadow: 0 0 5px #e5be01;
+  }
+}
   </style>
 
 </head>
