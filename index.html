@@ -944,7 +944,7 @@ if (!document.fullscreenElement) {
         end.setHours(20, 45, 0, 0); // Hora de fin: 8:45pm
 
         if (now >= start && now <= end) {
-          fetch('example.txt')
+          fetch('1.txt')
             .then(response => response.text())
             .then(text => {
               const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
