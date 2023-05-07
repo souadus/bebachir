@@ -935,21 +935,29 @@ if (!document.fullscreenElement) {
 
 
 
-<script>
-      fetch('1.txt')
-        .then(response => response.text())
-        .then(text => {
-          const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
-          const marquee = document.querySelector('#words marquee');
-          words.forEach(word => {
-            const span = document.createElement('span');
-            span.textContent = word;
-            marquee.appendChild(span);
-            const space = document.createTextNode(' ');
-            marquee.appendChild(space);
+ <script>
+      const now = new Date();
+      const currentHour = now.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true });
+      const showMarquee = currentHour.indexOf('PM') !== -1 && parseInt(currentHour) >= 7 && parseInt(currentHour) < 9;
+      const wordsElement = document.querySelector('#words');
+
+      if (showMarquee) {
+        wordsElement.style.display = 'block';
+        fetch('1.txt')
+          .then(response => response.text())
+          .then(text => {
+            const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
+            const marquee = wordsElement.querySelector('marquee');
+            words.forEach(word => {
+              const span = document.createElement('span');
+              span.textContent = word;
+              marquee.appendChild(span);
+              const space = document.createTextNode(' ');
+              marquee.appendChild(space);
+            });
           });
-        });
-</script>
+      }
+    </script>
 
 
 
