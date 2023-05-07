@@ -936,27 +936,36 @@ if (!document.fullscreenElement) {
 
 
  <script>
-      const now = new Date();
-      const currentHour = now.toLocaleTimeString('en-US', { hour: 'numeric', hour12: true });
-      const showMarquee = currentHour.indexOf('PM') !== -1 && parseInt(currentHour) >= 1 && parseInt(currentHour) < 3;
-      const wordsElement = document.querySelector('#words');
+      function updateMarquee() {
+        const now = new Date();
+        const start = new Date();
+        start.setHours(17, 20, 0, 0); // Hora de inicio: 5:20pm
+        const end = new Date();
+        end.setHours(20, 45, 0, 0); // Hora de fin: 8:45pm
 
-      if (showMarquee) {
-        wordsElement.style.display = 'block';
-        fetch('1.txt')
-          .then(response => response.text())
-          .then(text => {
-            const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
-            const marquee = wordsElement.querySelector('marquee');
-            words.forEach(word => {
-              const span = document.createElement('span');
-              span.textContent = word;
-              marquee.appendChild(span);
-              const space = document.createTextNode(' ');
-              marquee.appendChild(space);
+        if (now >= start && now <= end) {
+          fetch('example.txt')
+            .then(response => response.text())
+            .then(text => {
+              const words = text.split(/[ ,.]+/); // Separar palabras por espacios, comas y puntos
+              const marquee = document.querySelector('#words marquee');
+              marquee.innerHTML = ''; // Limpiar el marquee antes de agregar nuevas palabras
+              words.forEach(word => {
+                const span = document.createElement('span');
+                span.textContent = word;
+                marquee.appendChild(span);
+                const space = document.createTextNode(' ');
+                marquee.appendChild(space);
+              });
             });
-          });
+        } else {
+          const marquee = document.querySelector('#words marquee');
+          marquee.innerHTML = ''; // Limpiar el marquee
+        }
       }
+
+      updateMarquee(); // Actualizar el marquee cuando la página se carga por primera vez
+      setInterval(updateMarquee, 20000); // Actualizar el marquee cada minuto
     </script>
 
 
